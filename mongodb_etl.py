@@ -16,7 +16,7 @@ def parse_list_column(x):
             return []
         return [g.strip("'\" ") for g in ast.literal_eval(str(x))]
     except:
-        # Fallback se ast.literal_eval fallisce su stringhe separate da virgola senza parentesi
+        # se ast.literal_eval fallisce su stringhe separate da virgola senza parentesi
         if isinstance(x, str) and x:
             return [g.strip() for g in x.split(",") if g.strip()]
         return []
@@ -32,7 +32,7 @@ df["keywords_list"] = df["keywords"].apply(parse_list_column)
 
 # Pulizia e Ridenominazione colonne
 
-# Rinominiamo le colonne per adeguarle alle convenzioni standard o ai tuoi nomi preferiti
+# Rinominiamo le colonne
 df = df.rename(columns={
     "id": "_id",                       # Usiamo l'id del film come chiave primaria di Mongo
     "Director": "director",
@@ -56,7 +56,7 @@ def raggruppa_stars(row):
 
 df["stars"] = df.apply(raggruppa_stars, axis=1)
 
-# Rimuoviamo le vecchie colonne non più necessarie per non duplicare i dati nel documento Mongo
+# Rimuoviamo le vecchie colonne non più necessarie per non duplicare i dati 
 colonne_da_rimuovere = [
     "genres_list", "Cast_list", "production_companies", 
     "production_countries", "spoken_languages", "keywords",
@@ -64,10 +64,10 @@ colonne_da_rimuovere = [
 ]
 df = df.drop(columns=[col for col in colonne_da_rimuovere if col in df.columns])
 
-# Rimuovi eventuali colonne duplicate residue
+# Rimuovi colonne duplicate residue
 df = df.loc[:, ~df.columns.duplicated()]
 
-# Sostituiamo i NaN di Pandas con None (il null di MongoDB)
+# Sostituiamo i NaN con None 
 df = df.replace({np.nan: None})
 
 # Connessione a MongoDB

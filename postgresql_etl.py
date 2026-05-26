@@ -49,17 +49,8 @@ def parse_list_column(val):
         return [item.strip() for item in cleaned.split(',') if item.strip()]
 
 try:
-    print("Rimozione tabelle esistenti...")
-    # DROPPING TABLES (ordine inverso per via dei vincoli FK)
-    tables_to_drop = [
-        "movie_genres", "movie_actors", "movie_writers", 
-        "movie_keywords", "movie_crew", "movie_ratings",
-        "genres", "actors", "writers", "keywords", "languages", "movies"
-    ]
-    for table in tables_to_drop:
-        cur.execute(f"DROP TABLE IF EXISTS {table} CASCADE;")
 
-    print("Creazione nuove tabelle...")
+    print("Creazione tabelle...")
     
     # 1. Tabella delle Lingue
     cur.execute("""
