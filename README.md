@@ -70,7 +70,7 @@ Document-oriented NoSQL database used for:
 
 ## Data Cleaning
 
-`NEWcleanScript.py`
+`clean_movie_dataset.py`
 
 * removes duplicates
 * handles null values
@@ -79,7 +79,7 @@ Document-oriented NoSQL database used for:
 
 ## PostgreSQL ETL
 
-`NEWtransform_postgres.py`
+`postgresql_etl.py`
 
 * creates relational schema
 * populates tables
@@ -87,7 +87,7 @@ Document-oriented NoSQL database used for:
 
 ## MongoDB ETL
 
-`NEW_transform_mongo.py`
+`mongodb_etl.py`
 
 * transforms records into BSON documents
 * embeds arrays and nested fields
