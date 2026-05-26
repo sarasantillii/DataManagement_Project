@@ -1,5 +1,5 @@
 # DataManagement_Project
-Comparative analysis of a Relational DBMS (PostgreSQL) and a NoSQL Document Database (MongoDB) using the same movie dataset
+Comparative analysis of a Relational DBMS (PostgreSQL) and a NoSQL Document Database (MongoDB) using the same movie dataset.
 
 ## Project Overview
 
@@ -24,16 +24,9 @@ The comparison focuses on:
 
 # Dataset
 
-The project uses a movie dataset containing many information about over 1 million of movies & TV shows like:
+The project uses the movie dataset "the "IMDb and TMDb Movie Metadata Big Dataset" containing many information about over 1 million of movies & TV shows, available con Kaggle:
 
-* title
-* genres
-* cast
-* ratings
-* keywords
-* IMDb ratings
-* overview
-* keywords
+https://www.kaggle.com/datasets/shubhamchandra235/imdb-and-tmdb-movie-metadata-big-dataset-1m/data
 
 ---
 
